@@ -1,0 +1,82 @@
+:root {
+  --ink: #1b1a17;
+  --paper: #faf8f4;
+  --accent: #8f6a08;
+  --accent-strong: #b8860b;
+  --soft: #6d6a63;
+  --line: #e6e2da;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+}
+header.site {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.wordmark {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+nav.site a {
+  color: var(--soft);
+  text-decoration: none;
+  font-size: 0.98rem;
+  margin-left: 18px;
+}
+nav.site a[aria-current="page"] { color: var(--accent); font-weight: 600; }
+nav.site a:hover, nav.site a:focus-visible { color: var(--accent-strong); }
+main { max-width: 720px; margin: 0 auto; padding: 7vh 24px 8vh; }
+h1 {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: clamp(2.4rem, 8vw, 3.4rem);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  margin: 0 0 6px;
+}
+.tag { color: var(--accent); font-weight: 600; font-size: 1.08rem; margin-bottom: 30px; }
+h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.35rem;
+  margin: 40px 0 8px;
+  letter-spacing: -0.01em;
+}
+p { margin: 12px 0; font-size: 1.03rem; }
+.soft { color: var(--soft); }
+ul.plain { padding-left: 1.2em; margin: 12px 0; }
+ul.plain li { margin: 7px 0; }
+a { color: var(--accent); }
+a:hover, a:focus-visible { color: var(--accent-strong); }
+.contact-block {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin: 22px 0;
+  background: #fffdf9;
+}
+.contact-block p { margin: 8px 0; }
+footer.site {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 26px 24px 40px;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 0.85rem;
+}
+footer.site p { margin: 6px 0; }
+footer.site a { color: var(--soft); text-decoration: underline; }
