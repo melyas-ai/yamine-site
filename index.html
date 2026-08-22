@@ -216,10 +216,24 @@
       follow - when the app meets the bar this page describes, not before.
       If you want to reach the people building it, write. We read every
       message.</p>
-      <div class="cta-row">
+      <div class="cta-row" data-fallback-for="waitlist">
         <a class="btn" href="mailto:developers@yamine.app">developers@yamine.app</a>
         <a class="cta-quiet" href="mailto:developers@yamine.app?subject=Tell%20me%20when%20Yamine%20ships">Be told when it ships</a>
       </div>
+      <form class="site-form" hidden data-form="waitlist"
+            data-cta="Tell me when it ships" data-busy="Adding you&hellip;"
+            data-done-cta="Added"
+            data-done="You are on the list. One email when Yamine launches - nothing else."
+            data-mail="developers@yamine.app">
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-row">
+          <label class="visually-hidden" for="wl-email">Email address</label>
+          <input id="wl-email" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+          <button class="btn" type="submit">Tell me when it ships</button>
+        </div>
+        <p class="form-note">One email when Yamine launches. Nothing else, ever.
+        See the <a href="/privacy.html">privacy policy</a>.</p>
+      </form>
     </div>
   </section>
 
@@ -254,6 +268,7 @@
   </footer>
 </div>
 
+<script src="/assets/forms.js" defer></script>
 <script>
 (function () {
   if (!('IntersectionObserver' in window)) return;
