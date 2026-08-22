@@ -4,15 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yamine - Travel, understood</title>
-<meta name="description" content="Yamine is a travel app by Yamine Ltd: verified country knowledge, orientation from the first minute, and trips that remember themselves. In development for iOS and Android.">
+<meta name="description" content="Yamine is a travel companion app by Yamine Ltd: country knowledge checked against official sources and carried with its receipt, orientation from your first minute, trips that remember themselves. In development for iOS and Android.">
+<link rel="canonical" href="https://yamine.app/">
 <meta property="og:title" content="Yamine - Travel, understood">
-<meta property="og:description" content="Most travel apps show you places. Yamine's job is understanding how a country works from the first minute.">
+<meta property="og:description" content="Most travel apps show you places. Yamine tells you how a country works - before you land, and from the minute you do.">
 <meta property="og:url" content="https://yamine.app/">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1a17'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='bold' fill='%23f2b83d' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css">
+<meta property="og:image" content="https://yamine.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#090c12">
+<link rel="icon" href="/assets/icons/icon-32.png" sizes="32x32">
+<link rel="icon" href="/assets/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
+<body class="night">
+<div class="wrap">
 <header class="site">
   <a class="wordmark" href="/">Yamine</a>
   <nav class="site" aria-label="Site">
@@ -21,63 +33,238 @@
     <a href="/privacy.html">Privacy</a>
   </nav>
 </header>
+
 <main>
-  <h1>Yamine</h1>
-  <div class="tag">Travel, understood.</div>
+  <section class="hero">
+    <div class="copy">
+      <p class="eyebrow">Travel companion &middot; in development</p>
+      <h1 class="display">Travel,<br>understood.</h1>
+      <p class="lede">Most travel apps show you places. Yamine tells you
+      <strong>how a country works</strong> - entry, money, connectivity,
+      transport, custom - before you land, and from the minute you do.
+      Every fact is researched against official sources and carried with
+      its receipt.</p>
+      <div class="cta-row">
+        <a class="btn" href="/contact.html">Write to the team</a>
+        <a class="cta-quiet" href="mailto:developers@yamine.app?subject=Tell%20me%20when%20Yamine%20ships">Be told when it ships</a>
+      </div>
+    </div>
+    <div class="shot">
+      <figure class="phone">
+        <div class="bezel"><img src="/assets/screens/globe-dark.webp" alt="The Explore screen of the Yamine app: a globe with your saved places marked in amber, above a list of countries A to Z" width="824" height="1830" fetchpriority="high"></div>
+        <figcaption class="phone-caption">Explore &middot; from the app in development</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <p>Most travel apps show you places. Yamine's job is understanding:
-  arriving in a country and knowing how it works from the first minute -
-  entry rules, money, connectivity, transport, safety, custom - with each
-  fact researched against official sources and carried with its receipt,
-  not scraped and hoped.</p>
+  <nav class="doors" aria-label="The five rooms of the app">
+    <a class="door" href="#orient"><span class="k">Orient</span><span class="d">where am I, how does this work</span></a>
+    <a class="door" href="#explore"><span class="k">Explore</span><span class="d">how countries work</span></a>
+    <a class="door" href="#add"><span class="k">Add</span><span class="d">anything in, filed right</span></a>
+    <a class="door" href="#trips"><span class="k">Trips</span><span class="d">plans that keep themselves</span></a>
+    <a class="door" href="#passport"><span class="k">Passport</span><span class="d">where you have been</span></a>
+  </nav>
 
-  <h2>Know before you go</h2>
-  <p>Country briefings cover the things that actually decide your first
-  day: how you get in, how you pay, how you get online, how you move
-  around, what to watch for and what is simply done differently. Every
-  briefing is written from researched, source-checked facts, and each
-  fact keeps a record of where it came from.</p>
+  <section class="feature reveal" id="orient">
+    <div class="copy">
+      <p class="eyebrow">Orient</p>
+      <h2 class="display">Oriented in your first minute.</h2>
+      <p>Land, open Yamine, and get a fast, honest answer to
+      <strong>&ldquo;where am I and how does this place work&rdquo;</strong> -
+      before you have local data or local instincts. Each reading you take
+      is kept, so the first minutes of a trip become part of its record.</p>
+    </div>
+    <div class="shot">
+      <figure class="phone">
+        <div class="bezel"><img src="/assets/screens/orient-dark.webp" alt="The Orient screen of the Yamine app: an 'Orient here' action with a precise fix in Tashkent, above a history of recent readings" width="824" height="1830" loading="lazy"></div>
+        <figcaption class="phone-caption">Orient &middot; sample content</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <h2>Orient the moment you land</h2>
-  <p>On arrival, Yamine's job is a fast, honest answer to "where am I and
-  how does this place work" - the essentials of any place, understood in
-  under a minute, before you have local data or local instincts.</p>
+  <section class="feature flip reveal" id="explore">
+    <div class="copy">
+      <p class="eyebrow">Explore</p>
+      <h2 class="display">Know before you go.</h2>
+      <p>Country briefings cover what actually decides your first day:
+      <strong>how you get in, how you pay, how you get online, how you move
+      around</strong>, what to watch for and what is simply done differently.
+      Each country carries a short checklist you can start ticking before
+      the flight - tick one thing, and the list is yours.</p>
+    </div>
+    <div class="shot">
+      <figure class="phone">
+        <div class="bezel"><img src="/assets/screens/country-dark.webp" alt="A country room in the Yamine app for Uzbekistan: a checklist, cities, entry conditions and a know-before-you-go section" width="824" height="1830" loading="lazy"></div>
+        <figcaption class="phone-caption">Explore &middot; sample content</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <h2>A globe that holds your travels</h2>
-  <p>Where you have been and where you want to go live on one globe. A
-  travel passport grows out of what you actually did, and trips assemble
-  themselves from the places, notes and captures you collect along the
-  way - planned trips, live trips, and the record they leave behind.</p>
+  <section class="feature reveal" id="trips">
+    <div class="copy">
+      <p class="eyebrow">Trips</p>
+      <h2 class="display">Trips that remember themselves.</h2>
+      <p>Planned trips, live trips, and the record they leave behind.
+      Trips assemble themselves from the <strong>places, notes and captures
+      you collect along the way</strong> - with the people you travelled
+      with, and the money you owe each other, in one place.</p>
+    </div>
+    <div class="shot">
+      <figure class="phone">
+        <div class="bezel"><img src="/assets/screens/trips-dark.webp" alt="The Trips screen of the Yamine app: a live trip in Marrakech, trips coming up, ideas, and past trips with their dates" width="824" height="1830" loading="lazy"></div>
+        <figcaption class="phone-caption">Trips &middot; sample content</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <h2>Facts with receipts</h2>
-  <p>Yamine's country knowledge is verified before it reaches you.
-  Claims are researched against official and authoritative sources,
-  graded, and carried with their provenance. Where something cannot be
-  verified, the app says so rather than guessing.</p>
+  <section class="feature flip reveal" id="passport">
+    <div class="copy">
+      <p class="eyebrow">Passport</p>
+      <h2 class="display">A passport that grows out of what you did.</h2>
+      <p>Where you have been and where you want to go live on
+      <strong>one globe</strong>. Stamps are earned from real visits, not
+      planned ones - a travel record that grows out of what you actually
+      did, ready to share or to keep to yourself.</p>
+    </div>
+    <div class="shot">
+      <figure class="phone">
+        <div class="bezel"><img src="/assets/screens/passport-dark.webp" alt="The Passport screen of the Yamine app: a named passport card with country stamps by year, and a world map of visited places" width="824" height="1830" loading="lazy"></div>
+        <figcaption class="phone-caption">Passport &middot; sample content</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <h2>Seven languages, from the foundations</h2>
-  <p>Yamine is built multilingual from the ground up rather than
-  translated as an afterthought, so the understanding travels with you
-  in the language you think in.</p>
-
-  <h2>Private by design</h2>
-  <p>Your places, trips and captures are yours. Deletion is built to
-  really delete. Nothing about you is sold or shared. The full detail is
-  in our <a href="/privacy.html">privacy policy</a>.</p>
-
-  <h2>Where Yamine is today</h2>
-  <p class="soft">Yamine is in active development by Yamine Ltd, a UK
-  company, and has not yet launched. Releases for iOS (App Store) and
-  Android (Google Play) will follow. If you want to reach the team
-  building it, see the <a href="/contact.html">contact page</a> - we
-  read every message.</p>
+  <section class="feature-add reveal" id="add">
+    <p class="eyebrow">Add</p>
+    <h2 class="display">And when something catches your eye.</h2>
+    <p>Paste a link from TikTok, Instagram, YouTube or a map. Name a place.
+    Drop in a photo, or a note. <strong>Yamine reads it and files it where
+    it belongs</strong> - a wishlist, a live trip, a city you will reach
+    next year.</p>
+  </section>
 </main>
-<footer class="site">
-  <p>Developer contact: <a href="mailto:developers@yamine.app">developers@yamine.app</a></p>
-  <p>Yamine Ltd is a company registered in England and Wales, company
-  number 17383120. Registered office: 71-75 Shelton Street, Covent
-  Garden, London WC2H 9JQ, United Kingdom.</p>
-  <p>&copy; 2026 Yamine Ltd &middot; Page updated 21 August 2026</p>
-</footer>
+</div>
+
+<section class="daylight">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Facts with receipts</p>
+      <h2 class="display">Verified before it reaches you.</h2>
+      <p class="lede">Yamine&rsquo;s country knowledge is researched against
+      official and authoritative sources, graded, and carried with its
+      provenance - <strong>each fact keeps a record of where it came
+      from</strong>. Where something cannot be verified, the app says so
+      rather than guessing.</p>
+      <p class="lede">And the app ships light and dark as equals - the same
+      screens, drawn for daylight.</p>
+    </div>
+    <div class="daylight-shots reveal">
+      <figure class="phone">
+        <div class="bezel"><img src="/assets/screens/globe-light.webp" alt="The Explore globe of the Yamine app in light mode, on a warm parchment background" width="824" height="1830" loading="lazy"></div>
+        <figcaption class="phone-caption">Explore &middot; light</figcaption>
+      </figure>
+      <figure class="phone">
+        <div class="bezel"><img src="/assets/screens/country-light.webp" alt="The Uzbekistan country room of the Yamine app in light mode" width="824" height="1830" loading="lazy"></div>
+        <figcaption class="phone-caption">Country room &middot; light</figcaption>
+      </figure>
+    </div>
+    <div class="langs reveal">
+      <p class="eyebrow">Seven languages</p>
+      <h3>Multilingual from the foundations.</h3>
+      <p>Yamine is built in seven languages from the start, rather than
+      translated as an afterthought - so the understanding travels with you
+      in the language you think in.</p>
+      <ul class="stamps">
+        <li>English</li>
+        <li>Español</li>
+        <li>Français</li>
+        <li>Русский</li>
+        <li><span class="ar">العربية</span></li>
+        <li>中文</li>
+        <li>Bahasa Indonesia</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="night-block reveal">
+    <p class="eyebrow">Private by design</p>
+    <h2 class="display">Yours means yours.</h2>
+    <div class="cols">
+      <p><strong>Only what a feature needs</strong> The app collects only
+      the data a feature needs in order to work - nothing gathered on
+      spec.</p>
+      <p><strong>Deletion that deletes</strong> Deleting your account
+      deletes the personal data behind it. Deletion is built to really
+      delete.</p>
+      <p><strong>Never sold, never tracked</strong> Personal data is not
+      sold and is not shared for advertising. No advertising or tracking
+      SDKs.</p>
+    </div>
+    <p class="more">The full detail, for this site and for the app, is in
+    the <a href="/privacy.html">privacy policy</a>.</p>
+  </section>
+
+  <section class="status reveal">
+    <div class="inner">
+      <p class="eyebrow">Where Yamine is today</p>
+      <h2 class="display">In development, in the open.</h2>
+      <p>There is no app to download yet. Yamine is built by a small team
+      at <strong>Yamine Ltd</strong>, a UK company registered in England
+      and Wales, company number 17383120, and it is in active development.
+      Releases for iOS on the App Store and Android on Google Play will
+      follow - when the app meets the bar this page describes, not before.
+      If you want to reach the people building it, write. We read every
+      message.</p>
+      <div class="cta-row">
+        <a class="btn" href="mailto:developers@yamine.app">developers@yamine.app</a>
+        <a class="cta-quiet" href="mailto:developers@yamine.app?subject=Tell%20me%20when%20Yamine%20ships">Be told when it ships</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="grid">
+      <div>
+        <h3>Yamine</h3>
+        <p class="origin">The name is the Arabic <span class="ar">يمين</span>
+        - &ldquo;right&rdquo;. The right way to travel.</p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <p><a href="/">Product</a></p>
+        <p><a href="/contact.html">Contact</a></p>
+        <p><a href="/privacy.html">Privacy</a></p>
+      </div>
+      <div>
+        <h3>Write to us</h3>
+        <p><a href="mailto:developers@yamine.app">developers@yamine.app</a></p>
+        <p><a href="mailto:support@yamine.app">support@yamine.app</a></p>
+        <p><a href="mailto:privacy@yamine.app">privacy@yamine.app</a></p>
+      </div>
+    </div>
+    <div class="legal">
+      <p>Screens shown are from the app in development, with sample
+      content; details may change before release.</p>
+      <p>Yamine Ltd is a company registered in England and Wales, company
+      number 17383120. Registered office: 71-75 Shelton Street, Covent
+      Garden, London WC2H 9JQ, United Kingdom.</p>
+      <p>&copy; 2026 Yamine Ltd &middot; Page updated 22 August 2026</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>
