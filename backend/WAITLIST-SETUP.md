@@ -1,53 +1,35 @@
-# Waitlist + contact form backend - decision and enable path
+# Waitlist + contact form backend - current state and upgrade path
 
-Written 2026-08-22 by the yamine-site seat. This branch (`forms-backend`) is
-COMPLETE and ready to flip; nothing on it is served until it merges to main.
+Updated 2026-08-22 (forms went live). History: this branch originally staged an
+Apps Script route; the owner's consent landed 22 Aug but the per-user Apps
+Script API toggle blocked deployment, so the live backend is the Google Forms
+route below, built estate-side. `apps-script.gs` in this folder is the READY
+upgrade variant if the owner ever flips script.google.com/home/usersettings.
 
-## The recommendation: Google Apps Script in the company's own Workspace
+## Live backend (since 2026-08-22 ~16:00 London)
 
-yamine.app's mail already runs on Google Workspace (MX smtp.google.com;
-mohamed@yamine.app is the mailbox and developers@ provably delivers to it).
-A tiny Apps Script web app deployed FROM that account gives the site a real
-HTTPS endpoint with:
+Two publicly-respondable Google Forms owned by mohamed@yamine.app:
 
-- **no new vendor**: the only processor is Google, which already holds the
-  domain's mail - the privacy policy's "providers that run our email and
-  website infrastructure" line covers it as written;
-- **no DNS change, no payment, no new account**;
-- **first-party data**: waitlist emails land in a Google Sheet in the
-  company's own Drive; contact messages additionally arrive in the mailbox
-  as email with reply-to set;
-- both the waitlist AND the contact form served by one endpoint.
+- **waitlist** - one field (Email). The site POSTs form-encoded to the form's
+  /formResponse URL with the field's entry id.
+- **contact** - Name, Email, Message, same pattern.
 
-Rejected alternatives: form-backend SaaS (Formspree etc.) adds a third-party
-processor holding the very data a privacy-led brand collects, plus a
-signup; Cloudflare Worker+KV is clean engineering but adds an account and a
-vendor for no gain at this volume; an estate-hosted endpoint couples a
-consumer product to the internal server and the public 443 funnel is broken.
+The post URLs and entry ids live in `assets/forms.js` and are public by
+nature (every visitor's browser sees them); no secret exists in this repo.
+Responses land in the forms (and their linked sheets, if the owner links
+them) inside the company's own Workspace - no new vendor.
 
-## What the owner has to do (about 10 minutes, once)
+Client behaviour (`assets/forms.js`): forms un-hide only when configured;
+mailto fallbacks show whenever JS or config is absent; a honeypot field makes
+bots "succeed" without any POST; a failed POST restores the button and points
+at the mailto address.
 
-1. Signed in as mohamed@yamine.app, open script.new
-2. Paste `backend/apps-script.gs` over the default file, save
-3. Deploy > New deployment > type "Web app" > execute as **Me**,
-   who has access **Anyone** > Deploy > authorise > copy the `/exec` URL
-4. Hand the URL back (via Lelouch); the seat then puts it in
-   `assets/forms.js` ENDPOINT, merges this branch to main, and verifies
-   the live forms end to end
+Note on responses: Google Forms accepts any POST with valid entry ids -
+the browser cannot read the response cross-origin (no-cors), so the UI
+treats a completed fetch as success. Delivery was proven end to end at
+build time (test POST returned 200 and was read back via the Forms API).
 
-First submission auto-creates the sheet "Yamine site forms" (tabs:
-waitlist, messages) in My Drive. Waitlist is deduped by email. A honeypot
-field absorbs naive bots; worst case is junk rows in a sheet.
+## Test rows to ignore
 
-## Fail-safe behaviour
-
-`assets/forms.js` keeps every form `hidden` while ENDPOINT is empty and the
-mailto fallbacks stay visible - merging this branch early changes nothing
-user-visible. The forms only appear once a working endpoint is wired.
-
-## Mail alias (related decision)
-
-hello@yamine.app: Google Workspace supports free aliases (Admin console >
-Users > mohamed > Alternate email addresses). No DNS change. Optional
-send-as in Gmail settings so replies can come FROM hello@. The site
-currently publishes developers@/support@/privacy@, which deliver.
+Rows marked with e2e-test addresses/messages dated 2026-08-22 are wiring
+tests from the build, noted in the fleet report.
