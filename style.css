@@ -435,29 +435,9 @@ footer.site .legal {
 }
 footer.site .legal p { margin: 4px 0; }
 
-/* ---------- paper document pages (contact, privacy) ---------- */
-body.paper {
-  background: var(--paper);
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(38, 34, 26, 0.02) 0px,
-    rgba(38, 34, 26, 0.02) 1px,
-    transparent 1px,
-    transparent 4px
-  );
-  color: var(--paper-ink);
-}
-body.paper .wordmark { color: var(--paper-ink); }
-body.paper .wordmark:hover, body.paper .wordmark:focus-visible { color: #000; }
-body.paper nav.site a { color: var(--paper-muted); }
-body.paper nav.site a:hover, body.paper nav.site a:focus-visible { color: var(--paper-ink); }
-body.paper nav.site a[aria-current="page"] { color: #8f6a08; }
-body.paper a { color: #8f6a08; }
-body.paper a:hover, body.paper a:focus-visible { color: #6d5106; }
-body.paper a:focus-visible { outline-color: #8f6a08; }
-body.paper main { max-width: 720px; margin: 0 auto; padding: 8vh 24px 10vh; }
-body.paper .eyebrow { color: #8f8467; }
-body.paper h1 {
+/* ---------- document pages (contact, privacy): same night system, prose layout ---------- */
+body.doc main { max-width: 720px; margin: 0 auto; padding: 8vh 24px 10vh; }
+body.doc h1 {
   font-family: var(--display);
   font-weight: 580;
   letter-spacing: -0.015em;
@@ -465,31 +445,26 @@ body.paper h1 {
   font-size: clamp(2.1rem, 5.5vw, 2.9rem);
   margin: 0;
 }
-body.paper .tag { color: #8f8467; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; margin: 14px 0 0; }
-body.paper h2 {
+body.doc .tag { color: var(--cap); font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; margin: 14px 0 0; }
+body.doc h2 {
   font-family: var(--display);
   font-weight: 580;
   font-size: 1.35rem;
   letter-spacing: -0.01em;
   margin: 44px 0 8px;
 }
-body.paper p { margin: 12px 0; font-size: 1.01rem; color: #3d382c; }
-body.paper ul.plain { padding-left: 1.2em; margin: 12px 0; color: #3d382c; }
-body.paper ul.plain li { margin: 7px 0; }
+body.doc p { margin: 12px 0; font-size: 1.01rem; color: var(--muted); }
+body.doc p strong { color: var(--ink); font-weight: 550; }
+body.doc ul.plain { padding-left: 1.2em; margin: 12px 0; color: var(--muted); }
+body.doc ul.plain li { margin: 7px 0; }
 .contact-block {
-  border: 1px solid var(--paper-line);
+  border: 1px solid var(--hairline);
   border-radius: 12px;
   padding: 20px 24px;
   margin: 26px 0;
-  background: var(--paper-2);
+  background: rgba(20, 25, 38, 0.45);
 }
 .contact-block p { margin: 8px 0; }
-body.paper footer.site { border-top: 1px solid var(--paper-line); color: var(--paper-muted); }
-body.paper footer.site h3 { color: #8f8467; }
-body.paper footer.site a { color: var(--paper-muted); }
-body.paper footer.site a:hover, body.paper footer.site a:focus-visible { color: var(--paper-ink); }
-body.paper footer.site .origin .ar { color: var(--paper-ink); }
-body.paper footer.site .legal { border-top: 1px solid var(--paper-line); color: #8f8467; }
 
 /* ---------- 404 ---------- */
 .lost { padding: 12vh 0 14vh; max-width: 40em; }
@@ -507,7 +482,7 @@ body.paper footer.site .legal { border-top: 1px solid var(--paper-line); color: 
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
 .site-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-.site-form { margin-top: 30px; }
+.site-form { margin-top: 30px; scroll-margin-top: 15vh; }
 .site-form input[type="text"],
 .site-form input[type="email"],
 .site-form textarea {
@@ -533,20 +508,6 @@ body.paper footer.site .legal { border-top: 1px solid var(--paper-line); color: 
 .site-form .field { margin: 14px 0; }
 .site-form .field label { display: block; margin-bottom: 6px; font-weight: 550; }
 .site-form .field .opt { font-weight: 400; color: var(--cap); }
-body.paper .site-form input[type="text"],
-body.paper .site-form input[type="email"],
-body.paper .site-form textarea {
-  color: var(--paper-ink);
-  background: var(--paper-2);
-  border-color: var(--paper-line);
-}
-body.paper .site-form input:focus-visible, body.paper .site-form textarea:focus-visible {
-  outline-color: #8f6a08;
-}
-body.paper .site-form .btn { background: var(--paper-ink); color: var(--paper-2); }
-body.paper .site-form .btn:hover, body.paper .site-form .btn:focus-visible { background: #000; }
-body.paper .site-form .form-note { color: var(--paper-muted); }
-body.paper .site-form .form-note.form-done { color: #8f6a08; }
 
 /* ---------- reveal motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
