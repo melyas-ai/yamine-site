@@ -60,6 +60,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 html, body { overflow-x: clip; }
+[hidden] { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
@@ -499,6 +500,53 @@ body.paper footer.site .legal { border-top: 1px solid var(--paper-line); color: 
 .lost li a { color: var(--ink); }
 .lost li a:hover, .lost li a:focus-visible { color: var(--gold); }
 .lost li .d { color: var(--cap); font-size: 0.9rem; }
+
+/* ---------- forms (waitlist + contact; hidden until a backend is wired) ---------- */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+.site-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.site-form { margin-top: 30px; }
+.site-form input[type="text"],
+.site-form input[type="email"],
+.site-form textarea {
+  font: inherit;
+  color: var(--ink);
+  background: rgba(20, 25, 38, 0.55);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 13px 20px;
+  width: 100%;
+  max-width: 26em;
+}
+.site-form textarea { border-radius: 16px; resize: vertical; }
+.site-form input:focus-visible, .site-form textarea:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 2px;
+}
+.site-form .form-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.site-form .form-row input { flex: 1 1 220px; width: auto; }
+.site-form .btn { border: 0; cursor: pointer; font: inherit; font-weight: 550; }
+.site-form .btn:disabled { opacity: 0.6; cursor: default; }
+.site-form .form-note { color: var(--cap); font-size: 0.88rem; margin: 12px 0 0; }
+.site-form .form-note.form-done { color: var(--gold); }
+.site-form .field { margin: 14px 0; }
+.site-form .field label { display: block; margin-bottom: 6px; font-weight: 550; }
+.site-form .field .opt { font-weight: 400; color: var(--cap); }
+body.paper .site-form input[type="text"],
+body.paper .site-form input[type="email"],
+body.paper .site-form textarea {
+  color: var(--paper-ink);
+  background: var(--paper-2);
+  border-color: var(--paper-line);
+}
+body.paper .site-form input:focus-visible, body.paper .site-form textarea:focus-visible {
+  outline-color: #8f6a08;
+}
+body.paper .site-form .btn { background: var(--paper-ink); color: var(--paper-2); }
+body.paper .site-form .btn:hover, body.paper .site-form .btn:focus-visible { background: #000; }
+body.paper .site-form .form-note { color: var(--paper-muted); }
+body.paper .site-form .form-note.form-done { color: #8f6a08; }
 
 /* ---------- reveal motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
