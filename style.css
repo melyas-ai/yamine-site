@@ -27,9 +27,11 @@
   font-weight: 500;
   font-display: swap;
 }
+/* Full Arabic-range subset of Noto Naskh Arabic (self-hosted) - a partial
+   word-subset here breaks per-character fallback and disconnects joining */
 @font-face {
-  font-family: "Naskh Yamine";
-  src: url("/assets/fonts/naskh-yamine.woff2") format("woff2");
+  font-family: "Noto Naskh Arabic";
+  src: url("/assets/fonts/naskh-arabic.woff2") format("woff2");
   font-weight: 500;
   font-display: swap;
 }
@@ -357,9 +359,9 @@ a.door:hover .k, a.door:focus-visible .k { color: var(--gold); }
   color: #4a4433;
 }
 .stamps li .ar {
-  font-family: "Naskh Yamine", "Noto Naskh Arabic", serif;
+  font-family: "Noto Naskh Arabic", serif;
   font-size: 1.02rem;
-  letter-spacing: 0;
+  letter-spacing: normal;
 }
 
 /* ---------- privacy + status ---------- */
@@ -418,9 +420,10 @@ footer.site a { color: var(--muted); }
 footer.site a:hover, footer.site a:focus-visible { color: var(--ink); }
 footer.site .origin { color: var(--muted); max-width: 26em; }
 footer.site .origin .ar {
-  font-family: "Naskh Yamine", "Noto Naskh Arabic", serif;
+  font-family: "Noto Naskh Arabic", serif;
   color: var(--ink);
   font-size: 1.05rem;
+  letter-spacing: normal;
 }
 footer.site .legal {
   border-top: 1px solid var(--hairline-soft);
