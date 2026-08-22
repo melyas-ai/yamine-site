@@ -1,24 +1,18 @@
 /* Yamine site forms: waitlist + contact.
-   Backed by two publicly-respondable Google Forms owned by the company's
-   own Workspace account; the post URLs and entry ids below are public by
-   nature (any visitor's browser sees them). A form with no config here
-   stays hidden and its mailto fallback remains - the site never shows a
-   control that does not work. */
+   Backed by the company's own Apps Script web app (Google Workspace);
+   fields: kind=waitlist|message, email, name, message, honeypot "website".
+   The endpoint 302s to a login-walled page even on success, so the client
+   never judges by the response - a completed no-cors fetch is treated as
+   sent, and delivery is proven at the sheet. The two Google Forms remain
+   as a dormant fallback (see the fleet wiring file). If ENDPOINT is ever
+   emptied, forms hide and the mailto fallbacks return - the site never
+   shows a control that does not work. */
 (function () {
-  var FORMS = {
-    waitlist: {
-      post: 'https://docs.google.com/forms/d/e/1FAIpQLSc-zb0pomBGfBPz-o5r8oy2MSdqgJaWW7Pyl8m76XqumD4FAQ/formResponse',
-      map: { email: 'entry.1991170500' }
-    },
-    message: {
-      post: 'https://docs.google.com/forms/d/e/1FAIpQLSd7pkoMUPHGfru-AoheG-i5pJiyM_zwOV43MQlGnsDoTsuzYw/formResponse',
-      map: { name: 'entry.1678477959', email: 'entry.1233805790', message: 'entry.363002019' }
-    }
-  };
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzs29NVi16hfKV8BI6-RZ-lXvBW_KsComsVEhYo_RyvcW8C1B253rvxUK-94hbYG8iOPg/exec';
+
+  if (!ENDPOINT) return;
 
   document.querySelectorAll('[data-form]').forEach(function (form) {
-    var cfg = FORMS[form.dataset.form];
-    if (!cfg || !cfg.post) return;
     var fallback = document.querySelector('[data-fallback-for="' + form.dataset.form + '"]');
     form.hidden = false;
     if (fallback) fallback.hidden = true;
@@ -35,19 +29,17 @@
         if (note) { note.textContent = form.dataset.done; note.classList.add('form-done'); }
       };
 
-      /* honeypot: filled means a bot - pretend success, send nothing */
+      /* honeypot: filled means a bot - pretend success, send nothing
+         (the endpoint carries its own server-side guard as well) */
       if (hp && hp.value) { done(); return; }
 
       btn.disabled = true;
       btn.textContent = form.dataset.busy || 'Sending…';
 
-      var body = new URLSearchParams();
-      Object.keys(cfg.map).forEach(function (k) {
-        var el = form.querySelector('[name="' + k + '"]');
-        body.append(cfg.map[k], el ? el.value : '');
-      });
+      var body = new URLSearchParams(new FormData(form));
+      body.append('kind', form.dataset.form === 'waitlist' ? 'waitlist' : 'message');
 
-      fetch(cfg.post, {
+      fetch(ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
