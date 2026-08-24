@@ -510,6 +510,21 @@ body.doc ul.plain li { margin: 7px 0; }
 .site-form .field .opt { font-weight: 400; color: var(--cap); }
 .site-form .alt { margin: 20px 0 0; }
 
+/* pill capture: one quiet element, the app's own search affordance */
+.site-form.pill .form-row { position: relative; max-width: 26em; }
+.site-form.pill input[type="email"] { max-width: none; padding-right: 62px; }
+.site-form.pill .disc {
+  position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%; border: 0; padding: 0;
+  background: var(--gold); color: var(--ground-2);
+  font: inherit; font-size: 1.1rem; line-height: 1; font-weight: 600;
+  cursor: pointer; display: grid; place-items: center;
+  transition: background 200ms var(--curve), transform 200ms var(--curve);
+}
+.site-form.pill .disc:hover, .site-form.pill .disc:focus-visible { background: #f8ca63; }
+.site-form.pill .disc:active { transform: translateY(-50%) scale(0.94); }
+.site-form.pill .disc:disabled { cursor: default; }
+
 /* ---------- reveal motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal {
