@@ -508,6 +508,7 @@ body.doc ul.plain li { margin: 7px 0; }
 .site-form .field { margin: 14px 0; }
 .site-form .field label { display: block; margin-bottom: 6px; font-weight: 550; }
 .site-form .field .opt { font-weight: 400; color: var(--cap); }
+.site-form .alt { margin: 20px 0 0; }
 
 /* ---------- reveal motion ---------- */
 @media (prefers-reduced-motion: no-preference) {

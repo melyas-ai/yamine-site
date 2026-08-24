@@ -13,9 +13,11 @@
   if (!ENDPOINT) return;
 
   document.querySelectorAll('[data-form]').forEach(function (form) {
-    var fallback = document.querySelector('[data-fallback-for="' + form.dataset.form + '"]');
+    /* querySelectorAll: the same kind of form can appear more than once on a
+       page (waitlist: hero + status card), each with its own fallback row */
+    document.querySelectorAll('[data-fallback-for="' + form.dataset.form + '"]')
+      .forEach(function (el) { el.hidden = true; });
     form.hidden = false;
-    if (fallback) fallback.hidden = true;
 
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();

@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css?v=20260822c">
+<link rel="stylesheet" href="/style.css?v=20260824a">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="night">
@@ -44,9 +44,23 @@
       transport, custom - before you land, and from the minute you do.
       Every fact is researched against official sources and carried with
       its receipt.</p>
-      <div class="cta-row">
+      <form class="site-form" hidden data-form="waitlist"
+            data-cta="Tell me when it ships" data-busy="Adding you&hellip;"
+            data-done-cta="Added"
+            data-done="You're on the list."
+            data-mail="developers@yamine.app">
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-row">
+          <label class="visually-hidden" for="join-email">Email address</label>
+          <input id="join-email" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+          <button class="btn" type="submit">Tell me when it ships</button>
+        </div>
+        <p class="form-note">Launch news and updates from Yamine. Unsubscribe
+        anytime. <a href="/privacy.html">Privacy policy</a>.</p>
+        <p class="alt"><a class="cta-quiet" href="/contact.html">Write to the team</a></p>
+      </form>
+      <div class="cta-row" data-fallback-for="waitlist">
         <a class="btn" href="/contact.html">Write to the team</a>
-        <a class="cta-quiet" href="#waitlist">Be told when it ships</a>
       </div>
     </div>
     <div class="shot">
@@ -262,15 +276,18 @@
       <p>Yamine Ltd is a company registered in England and Wales, company
       number 17383120. Registered office: 71-75 Shelton Street, Covent
       Garden, London WC2H 9JQ, United Kingdom.</p>
-      <p>&copy; 2026 Yamine Ltd &middot; Page updated 22 August 2026</p>
+      <p>&copy; 2026 Yamine Ltd &middot; Page updated 24 August 2026</p>
     </div>
   </footer>
 </div>
 
-<script src="/assets/forms.js?v=20260822c" defer></script>
+<script src="/assets/forms.js?v=20260824a" defer></script>
 <script>
 (function () {
-  if (!('IntersectionObserver' in window)) return;
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
